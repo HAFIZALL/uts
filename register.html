@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar | jaket aa</title>
+    <link rel="icon" href="img/logo_CQ_RBG.png" type="image/svg+xml" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body class="bg-gradient-to-br from-emerald-50 to-white font-sans">
+    <section class="flex items-center justify-center min-h-screen px-4">
+      <div
+        class="bg-white rounded-3xl shadow-2xl max-w-5xl w-full flex flex-col md:flex-row overflow-hidden"
+      >
+        <!-- Register Form -->
+        <div class="w-full md:w-1/2 p-10 flex flex-col justify-center">
+          <div class="mb-6 text-center">
+            <img
+              src="img/logo_CQ_RBG.png"
+              alt="CapQueen Logo"
+              class="h-12 mx-auto mb-3"
+            />
+            <h2 class="text-3xl font-bold text-gray-800">Buat Akun Baru</h2>
+            <p class="text-sm text-gray-500">
+              Daftar sekarang untuk belanja
+              <strong>jaketaa</strong>
+            </p>
+          </div>
+
+          <form id="registerForm" class="space-y-4">
+            <!-- Nama -->
+            <div>
+              <label
+                for="nama"
+                class="block text-sm font-semibold text-gray-700"
+                >Nama Lengkap</label
+              >
+              <input
+                id="nama"
+                type="text"
+                placeholder="Nama Lengkap"
+                required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <small id="error-nama" class="text-sm text-red-600"></small>
+            </div>
+
+            <!-- Username -->
+            <div>
+              <label
+                for="username"
+                class="block text-sm font-semibold text-gray-700"
+                >Username</label
+              >
+              <input
+                id="username"
+                type="text"
+                placeholder="Username"
+                required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <small id="error-username" class="text-sm text-red-600"></small>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-semibold text-gray-700"
+                >Email</label
+              >
+              <input
+                id="email"
+                type="email"
+                placeholder="Email"
+                required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <small id="error-email" class="text-sm text-red-600"></small>
+            </div>
+
+            <!-- Password -->
+            <div>
+              <label
+                for="password"
+                class="block text-sm font-semibold text-gray-700"
+                >Password</label
+              >
+              <input
+                id="password"
+                type="password"
+                placeholder="Password"
+                required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <small id="error-password" class="text-sm text-red-600"></small>
+            </div>
+
+            <!-- WhatsApp -->
+            <div>
+              <label
+                for="whatsapp"
+                class="block text-sm font-semibold text-gray-700"
+                >Nomor WhatsApp</label
+              >
+              <input
+                id="whatsapp"
+                type="text"
+                placeholder="Contoh: 6281234567890"
+                required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <small id="error-whatsapp" class="text-sm text-red-600"></small>
+            </div>
+
+            <!-- Role -->
+            <div>
+              <label
+                for="role"
+                class="block text-sm font-semibold text-gray-700"
+                >Daftar Sebagai</label
+              >
+              <select
+                id="role"
+                required
+                class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              >
+                <option value="">-- Pilih Peran --</option>
+                <option value="pelanggan">Pelanggan</option>
+                <option value="kasir">Kasir</option>
+                <option value="admin">Admin System</option>
+              </select>
+              <small id="error-role" class="text-sm text-red-600"></small>
+            </div>
+
+            <!-- Button -->
+            <button
+              type="submit"
+              class="w-full bg-rose-500 text-white py-3 rounded-lg font-semibold hover:bg-rose-600 transition-all"
+            >
+              Daftar Sekarang
+            </button>
+          </form>
+
+          <p class="text-sm text-gray-600 mt-6 text-center">
+            Sudah punya akun?
+            <a
+              href="login.html"
+              class="text-rose-600 font-semibold hover:underline"
+              >Login di sini</a
+            >
+          </p>
+        </div>
+
+        <!-- Gambar Samping -->
+        <div
+          class="hidden md:block md:w-1/2 bg-cover bg-center"
+          style="background-image: url('img/model.jpg')"
+        ></div>
+      </div>
+    </section>
+    <script type="module" src="register.js"></script>
+  </body>
+</html>

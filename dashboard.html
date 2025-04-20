@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Pelanggan | CapQueen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav
+      class="bg-white shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50"
+    >
+      <div class="flex items-center gap-2">
+        <img src="img/logo_CQ_RBG.png" alt="CapQueen" class="h-10" />
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="text-sm text-right">
+          <p class="font-medium" id="userName">Pengguna</p>
+          <p class="text-xs text-gray-500" id="userEmail">email@example.com</p>
+        </div>
+        <button
+          id="logoutBtn"
+          class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm"
+        >
+          Logout
+        </button>
+      </div>
+    </nav>
+
+    <!-- Konten -->
+    <section class="bg-white py-8 px-4">
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">
+        Produk best seller Kami
+      </h2>
+      <!-- Search & Filter Produk -->
+      <div class="p-4 bg-white rounded-xl shadow-md space-y-4 font-sans">
+        <!-- Baris 1: Keyword & Reset -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Cari jaket..."
+            class="w-full sm:w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 transition"
+          />
+
+          <button
+            onclick="resetFilter()"
+            class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 active:scale-95 transition duration-200"
+          >
+            🔄 Reset
+          </button>
+        </div>
+
+        <!-- Baris 2: Sort Harga & Rating -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          <select
+            id="sortHarga"
+            class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 transition"
+          >
+            <option value="">💸 Urutkan Harga</option>
+            <option value="terendah">Harga Terendah</option>
+            <option value="tertinggi">Harga Tertinggi</option>
+          </select>
+
+          <select
+            id="sortRating"
+            class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 transition"
+          >
+            <option value="">⭐ Urutkan Rating</option>
+            <option value="terbagus">Rating Terbagus</option>
+            <option value="terjelek">Rating Terjelek</option>
+          </select>
+
+          <input
+            type="number"
+            id="hargaMin"
+            placeholder="💰 Harga Min"
+            class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 transition"
+          />
+
+          <input
+            type="number"
+            id="hargaMax"
+            placeholder="💰 Harga Max"
+            class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 transition"
+          />
+        </div>
+
+        <!-- Baris 3: Filter Bahan -->
+        <div class="flex">
+          <select
+            id="filterBahan"
+            class="w-full sm:w-1/3 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 transition"
+          >
+            <option value="">🎽 Semua Bahan</option>
+            <option value="wool">wool</option>
+            <option value="kulit">Kulit</option>
+            <option value="rajut">rajut</option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        id="product-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
+      ></div>
+    </section>
+
+    <!-- Sticky Cart -->
+    <div
+      id="stickyCart"
+      class="fixed top-24 right-5 bg-rose-500 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 cursor-pointer hover:bg-rose-600 transition-all z-40"
+    >
+      <i data-feather="shopping-cart"></i>
+      <span id="cartCount">0</span> item
+    </div>
+
+    <!-- Panel Keranjang -->
+    <div
+      id="cartPanel"
+      class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto"
+    >
+      <div class="p-4 border-b flex justify-between items-center">
+        <h3 class="text-lg font-bold">Keranjang</h3>
+        <button
+          id="closeCartPanel"
+          class="text-gray-600 hover:text-red-600 text-xl"
+        >
+          ✕
+        </button>
+      </div>
+      <div id="cartContainer" class="p-4 space-y-4"></div>
+    </div>
+
+    <!-- Modal Struk -->
+    <div
+      id="strukModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center z-50"
+    >
+      <div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+        <h2 class="text-xl font-bold mb-4">🧾 Struk Belanja</h2>
+        <div id="strukContent" class="text-sm space-y-2"></div>
+        <button
+          onclick="document.getElementById('strukModal').classList.add('hidden')"
+          class="mt-4 bg-rose-600 text-white px-4 py-2 rounded-md"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+
+    <!-- Script Produk & Auth -->
+    <script type="module" src="dashboard.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

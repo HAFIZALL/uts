@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo_CQ_RBG.png" type="image/svg+xml" />
+    <title>jaket aa</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDK -->
+<script type="module" src="firebase-check-auth.js"></script>
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar start -->
+    <nav class="flex items-center justify-between bg-white shadow-md px-6 py-4 fixed w-full top-0 z-50">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="img/logo_CQ_RBG.png" alt="CapQueen" class="h-10 w-auto" />
+        
+      </div>
+    
+      <!-- Nav Links -->
+      <div class="hidden md:flex space-x-8 text-gray-700 font-medium">
+        <a href="#home" class="hover:text-rose-600 transition">Home</a>
+        <a href="#about" class="hover:text-rose-600 transition">About Us</a>
+        <a href="#products" class="hover:text-rose-600 transition">Product</a>
+      </div>
+    
+      <!-- Right Side: Icons & Auth -->
+      <div class="flex items-center space-x-4">
+        <button id="search-button" class="hover:text-rose-600">
+          <i data-feather="search"></i>
+        </button>
+        <button id="shopping-cart-button" class="hover:text-rose-600">
+          <i data-feather="shopping-cart"></i>
+        </button>
+        
+        <!-- Tombol Login / Register -->
+        <a href="login.html" class="hidden md:inline-block bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-md text-sm transition">Login</a>
+        <a href="register.html" class="hidden md:inline-block border border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white px-4 py-2 rounded-md text-sm transition">Register</a>
+    
+        <!-- Hamburger Menu (mobile) -->
+        <button id="hamburger-menu" class="md:hidden hover:text-rose-600">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    
+      <!-- Search Form -->
+      <div class="absolute top-full right-6 mt-2 hidden bg-white shadow-md rounded-md px-4 py-2 w-64" id="search-form">
+        <div class="flex items-center border rounded overflow-hidden">
+          <input
+            type="search"
+            id="search-box"
+            placeholder="Search here..."
+            class="w-full px-3 py-2 outline-none text-gray-700"
+          />
+          <label for="search-box" class="px-3 text-gray-500">
+            <i data-feather="search"></i>
+          </label>
+        </div>
+      </div>
+    </nav>
+    
+    
+      <!-- Search Form end -->
+
+      <!-- Shopping Cart start -->
+     
+      <!-- Shopping Cart end -->
+
+
+    </nav>
+    
+    <!-- Navbar end -->
+
+    <!-- Hero Section start -->
+    <section class="hero" id="home">
+      <div class="mask-container">
+        <main class="content">
+          <h1>serba <span>serbi</span>, jaket </span></h1>
+          <p>
+            jaket aa menjual jaket untuk anak-anak skena diluar sana dengan harga relatif murah
+          </p>
+        </main>
+      </div>
+    </section>
+    <section class="hero relative bg-gradient-to-br from-white via-rose-50 to-rose-100 py-24 px-6" id="home">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+        <!-- Text Content -->
+        <div class="md:w-1/2 text-center md:text-left animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6">
+            serba <span class="text-rose-600">serbi</span>, jaket </span>
+          </h1>
+          <p class="text-lg text-gray-600 mb-8">
+            jaket aa berfokus untuk jaket kalangan anak muda
+          </p>
+          <a href="#products" class="inline-block bg-rose-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-rose-700 transition">
+            Jelajahi Koleksi 
+          </a>
+        </div>
+    
+        <!-- Image / Model -->
+        <div class="md:w-1/2 mt-12 md:mt-0 animate-fade-in-up">
+          <img src="img/model.jpg" alt="jaket aa" class="rounded-xl shadow-lg w-full max-w-md mx-auto" />
+        </div>
+      </div>
+    
+      <!-- Background blur effect -->
+      <div class="absolute top-0 left-0 w-60 h-60 bg-rose-200 opacity-20 rounded-full blur-3xl animate-ping"></div>
+      <div class="absolute bottom-0 right-0 w-80 h-80 bg-rose-300 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+    
+      <style>
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 1s ease-in-out both;
+        }
+        .animate-fade-in-up {
+          animation: fadeUp 1.2s ease-in-out both;
+        }
+      </style>
+    </section>
+    <!-- Hero Section end -->
+    <section class="relative bg-gradient-to-br from-rose-100 via-white to-rose-50 py-20 px-6 text-center overflow-hidden">
+      <div class="max-w-5xl mx-auto relative z-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-6">
+          jaket aa  — <span class="text-rose-600">cobain. atau nyesal.</span>
+        </h1>
+        
+        <a href="#products" class="inline-block bg-rose-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-rose-700 transition duration-300">
+          Belanja Sekarang 
+        </a>
+      </div>
+    
+      <!-- Hiasan Gaya Background -->
+      <div class="absolute top-0 left-0 w-40 h-40 bg-rose-200 opacity-20 rounded-full blur-3xl animate-ping"></div>
+      <div class="absolute bottom-0 right-0 w-60 h-60 bg-rose-300 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+    </section>
+    
+    <!-- About Section start -->
+    <section id="about" class="bg-rose-50 py-16 px-4 md:px-12">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-rose-600 mb-12">
+          <span class="block">Tentang</span> Kami
+        </h2>
+    
+        <div class="flex flex-col md:flex-row items-center gap-10 animate-fade-in">
+          <!-- Gambar -->
+          <div class="md:w-1/2">
+            <div class="overflow-hidden rounded-xl shadow-lg">
+              <img src="img/korean.jpg" alt="Tentang Kami" class="w-full h-auto object-cover hover:scale-105 transition duration-300" />
+            </div>
+          </div>
+    
+          <!-- Konten -->
+          <div class="md:w-1/2 text-gray-700">
+            <h3 class="text-2xl font-semibold mb-4">Kenapa harus jaket aa?</h3>
+            <p class="mb-4 leading-relaxed">
+              Tampil gaya dengan kece. elegan. dan berkualitas.
+            </p>
+            <p class="mb-4 leading-relaxed">
+              Koleksi kami menjaga akan kualitas, original.
+            </p>
+            <p class="leading-relaxed font-medium text-rose-600">
+              gunakanlah jaket yang sesuai kenyamanan mu
+            </p>
+    
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+      <style>
+        .animate-fade-in {
+          animation: fadeIn 1s ease-in-out both;
+        }
+        .animate-fade-up {
+          animation: fadeUp 1s ease-in-out both;
+        }
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+          0% { opacity: 0; transform: translateY(40px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+      </style>
+    </section>
+    
+    <!-- About Section end --><section id="bestseller" class="py-20 bg-white px-4 md:px-12">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-rose-600 mb-4"> Best Seller</h2>
+    <p class="text-gray-600 mb-10">jaket-jaket pilihan pelanggan yang paling laris dan digemari!</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-rose-50 rounded-xl shadow-lg p-4 hover:shadow-xl transition">
+        <img src="jaketkulit1.jpg" alt="jaket kulit" class="w-full h-48 object-cover rounded-md mb-3" />
+        <h3 class="text-lg font-semibold text-gray-800">jaket kulit1</h3>
+        <p class="text-sm text-gray-500">Rating: ⭐⭐⭐⭐⭐ (4.9)</p>
+        <p class="text-sm text-rose-500 font-medium mt-2">Terjual 1.200+ kali</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-rose-50 rounded-xl shadow-lg p-4 hover:shadow-xl transition">
+        <img src="jaketkulit4.jpg" alt="jaketkulit4" class="w-full h-48 object-cover rounded-md mb-3" />
+        <h3 class="text-lg font-semibold text-gray-800">jaketkulit4</h3>
+        <p class="text-sm text-gray-500">Rating: ⭐⭐⭐⭐☆ (4.7)</p>
+        <p class="text-sm text-rose-500 font-medium mt-2">Terjual 900+ kali</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-rose-50 rounded-xl shadow-lg p-4 hover:shadow-xl transition">
+        <img src="jaketrajut3.jpg" alt="jaket rajut3" class="w-full h-48 object-cover rounded-md mb-3" />
+        <h3 class="text-lg font-semibold text-gray-800">jaketrajut3</h3>
+        <p class="text-sm text-gray-500">Rating: ⭐⭐⭐⭐☆ (4.6)</p>
+        <p class="text-sm text-rose-500 font-medium mt-2">Terjual 750+ kali</p>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Products Section start -->
+    <section class="bg-white py-8 px-4" id="products">
+      
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">
+        Produk Unggulan Kami
+      </h2>
+     <!-- Search & Filter Produk -->
+     <div class="p-4 bg-white rounded-xl shadow-md space-y-4 font-sans">
+      <!-- Baris 1: Keyword & Reset -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+        <input type="text" id="searchInput" placeholder="🔍 Cari jaket..."
+          class="w-full sm:w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition" />
+    
+        <button onclick="resetFilter()"
+          class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 active:scale-95 transition duration-200">
+          🔄 Reset
+        </button>
+      </div>
+    
+      <!-- Baris 2: Sort Harga & Rating -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+        <select id="sortHarga"
+          class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+          <option value="">💸 Urutkan Harga</option>
+          <option value="terendah">Harga Terendah</option>
+          <option value="tertinggi">Harga Tertinggi</option>
+        </select>
+    
+        <select id="sortRating"
+          class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+          <option value="">⭐ Urutkan Rating</option>
+          <option value="terbagus">Rating Terbagus</option>
+          <option value="terjelek">Rating Terjelek</option>
+        </select>
+    
+        <input type="number" id="hargaMin" placeholder="💰 Harga Min"
+          class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition" />
+    
+        <input type="number" id="hargaMax" placeholder="💰 Harga Max"
+          class="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition" />
+      </div>
+    
+      <!-- Baris 3: Filter Bahan -->
+      <div class="flex">
+        <select id="filterBahan"
+          class="w-full sm:w-1/3 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+          <option value="">🎽 Semua Bahan</option>
+          <option value="katun">Katun</option>
+          <option value="kulit">Kulit</option>
+          <option value="rajut">rajut</option>
+        </select>
+      </div>
+    </div>
+    
+
+      
+      <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"></div>
+
+    </section>
+    
+    
+      
+      
+    
+   
+
+    <!-- Footer start -->
+    <footer class="bg-rose-100 text-gray-700 mt-16">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Logo & Deskripsi -->
+        <div>
+          <img src="img/logo_CQ_RBG.png" alt="CapQueen Logo" class="h-12 mb-3">
+          <p class="text-sm leading-relaxed">
+            produk jaket unggulan
+          </p>
+        </div>
+    
+        <!-- Navigasi -->
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-3">Navigasi</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#home" class="hover:text-rose-500">Home</a></li>
+            <li><a href="#about" class="hover:text-rose-500">Tentang Kami</a></li>
+            <li><a href="#products" class="hover:text-rose-500">Produk</a></li>
+            <li><a href="#bestseller" class="hover:text-rose-500">Best Seller</a></li>
+          </ul>
+        </div>
+    
+        <!-- Kontak -->
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-3">Kontak Kami</h4>
+          <ul class="text-sm space-y-2">
+            <li>Email: support@hafizal3254.id</li>
+            <li>WhatsApp: 0895-3254-31389</li>
+            <li>Instagram: @hafzz</li>
+          </ul>
+        </div>
+    
+        <!-- Newsletter -->
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-3">Dapatkan Promo!</h4>
+          <form class="flex flex-col space-y-3">
+            <input type="email" placeholder="Email kamu" class="px-4 py-2 rounded-md border border-rose-300 focus:ring-2 focus:ring-rose-400">
+            <button type="submit" class="bg-rose-500 text-white py-2 rounded-md hover:bg-rose-600 transition">Daftar Sekarang</button>
+          </form>
+        </div>
+      </div>
+    
+      <div class="bg-rose-200 text-center py-4 text-sm text-gray-600">
+        &copy; 2025 hafiz al fathin. Hak cipta dilindungi. 
+      </div>
+    </footer>
+    
+    <!-- Footer end -->
+
+   <!-- Sticky Cart -->
+<div id="stickyCart"
+class="fixed top-20 right-5 bg-rose-500 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 cursor-pointer hover:bg-rose-600 transition-all z-50">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24"
+  stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6H19m-5 0a1 1 0 001 1m-6 0a1 1 0 01-1-1" />
+</svg>
+<span id="cartCount">0</span> item
+</div>
+<!-- Side Panel Keranjang -->
+<div id="cartPanel" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+  <div class="p-4 border-b flex justify-between items-center">
+    <h3 class="text-lg font-bold">Keranjang Belanja</h3>
+    <button id="closeCartPanel" class="text-gray-600 hover:text-red-600 text-xl">✕</button>
+  </div>
+  <div id="cartContainer" class="p-4 space-y-4">
+    <!-- Isi keranjang akan ditampilkan di sini -->
+  </div>
+</div>
+
+
+
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- My Javascript -->
+    <script type="module"  src="script.js"></script>
+  </body>
+</html>

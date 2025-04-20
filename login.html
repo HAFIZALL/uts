@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | jaket aa</title>
+    <link rel="icon" href="img/logo_CQ_RBG.png" type="image/svg+xml" />
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-neutral-100 font-sans">
+    <section class="flex items-center justify-center min-h-screen px-4">
+      <div
+        class="bg-white rounded-3xl shadow-xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden"
+      >
+        <!-- Image -->
+        <div
+          class="hidden md:block md:w-1/2 bg-cover bg-center"
+          style="background-image: url('img/korean.jpg')"
+        ></div>
+
+        <!-- Login Form -->
+        <div class="w-full md:w-1/2 p-10 flex flex-col justify-center">
+          <h2 class="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h2>
+          <p class="text-gray-500 mb-6 text-sm">
+            Masuk ke akun jaket aa kamu untuk belanja
+          </p>
+
+          <form id="loginForm" class="space-y-4">
+            <input
+              type="text"
+              id="usernameOrEmail"
+              placeholder="Username atau Email"
+              class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-400 text-sm"
+            />
+
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-400 text-sm"
+              />
+              <span
+                id="togglePassword"
+                class="absolute right-3 top-3.5 cursor-pointer text-gray-400 text-xl"
+                >👁️</span
+              >
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-rose-500 text-white py-3 rounded-lg font-semibold hover:bg-rose-600 transition-all"
+            >
+              Login
+            </button>
+
+            <p id="loginError" class="text-red-500 text-sm"></p>
+          </form>
+
+          <p class="text-sm text-gray-600 mt-6 text-center">
+            Belum punya akun?
+            <a
+              href="register.html"
+              class="text-rose-600 font-semibold hover:underline"
+              >Daftar Sekarang</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="login.js"></script>
+  </body>
+</html>
